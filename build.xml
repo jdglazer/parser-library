@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="parser-library" basedir="." default="build">
+	<import file="../../workspace/smart-stocks-base/build.xml"/>
+	<property file="build.properties" />
+	<target name="build" depends="compile">
+		<jar destfile="target/${executable.jar.name}">
+			<fileset dir="src/main/java">
+				<include name="**/*.class" />
+			</fileset>
+		</jar>
+	</target>
+</project>
