@@ -1,7 +1,5 @@
 package com.jdglazer.web.crawler;
 
-import java.util.regex.Pattern;
-
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.url.WebURL;
@@ -17,11 +15,11 @@ public class WebCollector extends WebCrawler {
 	@Override
 	public boolean shouldVisit( Page page, WebURL url ) {
 		String href = url.getURL().toLowerCase();
-		boolean matches = true;
+		boolean matches = false;
 		for( String regex : webCollectorConfig.getUrlRegexes() ) {
 			try {
-				if( !Pattern.matches( regex,  href ) ) {
-					matches = false;
+				if( href.contains( regex.toLowerCase() ) ) {
+					matches = true;
 					break;
 				}
 			} catch( Exception e ) {

@@ -1,5 +1,6 @@
 package com.jdglazer.web.crawler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,6 +51,8 @@ public class WebCollectorConfig {
 	}
 
 	public List<String> getUrlRegexes() {
+		if( urlRegexes == null )
+			urlRegexes = new ArrayList<String>();
 		return urlRegexes;
 	}
 
